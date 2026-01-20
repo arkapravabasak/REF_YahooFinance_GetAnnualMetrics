@@ -1,0 +1,6 @@
+{
+  "Name": "REF_YahooFinance_GetAnnualMetrics",
+  "ProjectType": "Process",
+  "Description": "Robotic Enterprise Framework project where we find out the Annual Metrics for companies' share prices across the last 1 year.",
+  "MainFile": "Main.xaml"
+}
