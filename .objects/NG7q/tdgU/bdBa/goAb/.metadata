@@ -1,0 +1,14 @@
+﻿{
+  "Name": "Got it",
+  "Type": "Element",
+  "TaxonomyType": "Button",
+  "Id": "goAbVyTnnUask9ihgIwtZg",
+  "Reference": "3M5P-UxL6UqcrFsVRJtoeQ/goAbVyTnnUask9ihgIwtZg",
+  "ParentRef": "3M5P-UxL6UqcrFsVRJtoeQ/bdBaljpAyU2if2hdiC6ZWw",
+  "Created": "2026-02-13T11:57:34.0630028Z",
+  "Updated": "2026-02-13T11:57:34.0630028Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=25.10.22.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=25.10.1.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

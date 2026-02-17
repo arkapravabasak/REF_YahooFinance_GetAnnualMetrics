@@ -1,0 +1,13 @@
+﻿{
+  "Name": "Chrome Yahoo Finance - ",
+  "Type": "Screen",
+  "Id": "bdBaljpAyU2if2hdiC6ZWw",
+  "Reference": "3M5P-UxL6UqcrFsVRJtoeQ/bdBaljpAyU2if2hdiC6ZWw",
+  "ParentRef": "3M5P-UxL6UqcrFsVRJtoeQ/tdgU4M7pSkuAwBVugrAPcw",
+  "Created": "2026-02-13T05:42:28.9740239Z",
+  "Updated": "2026-02-13T05:42:28.9740239Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=25.10.22.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=25.10.1.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

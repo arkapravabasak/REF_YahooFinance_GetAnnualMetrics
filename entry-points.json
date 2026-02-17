@@ -9,10 +9,12 @@
         "type": "object",
         "properties": {
           "in_OrchestratorQueueName": {
-            "type": "string"
+            "type": "string",
+            "description": "Allows the Orchestrator queue name to be passed as an argument, instead of only being defined in the configuration file."
           },
           "in_OrchestratorQueueFolder": {
-            "type": "string"
+            "type": "string",
+            "description": "Allows the Orchestrator folder name where the queue is created to be passed as an argument, instead of only being defined in the configuration file."
           }
         },
         "required": []

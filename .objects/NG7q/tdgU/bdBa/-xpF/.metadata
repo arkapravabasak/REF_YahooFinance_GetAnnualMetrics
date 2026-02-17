@@ -1,0 +1,14 @@
+﻿{
+  "Name": "INPUT ybar-sbq",
+  "Type": "Element",
+  "TaxonomyType": "Input",
+  "Id": "-xpFFEt5Aki9_eOW2KYR_w",
+  "Reference": "3M5P-UxL6UqcrFsVRJtoeQ/-xpFFEt5Aki9_eOW2KYR_w",
+  "ParentRef": "3M5P-UxL6UqcrFsVRJtoeQ/bdBaljpAyU2if2hdiC6ZWw",
+  "Created": "2026-02-13T05:44:13.9711186Z",
+  "Updated": "2026-02-13T05:44:13.9711186Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=25.10.22.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=25.10.1.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}
