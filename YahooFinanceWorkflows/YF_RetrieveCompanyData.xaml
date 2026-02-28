@@ -1,6 +1,6 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="YF_SearchCompanyData" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Drawing;assembly=System.Drawing.Common" xmlns:sd1="clr-namespace:System.Drawing;assembly=System.Drawing.Primitives" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="YF_SearchCompanyData" this:YF_SearchCompanyData.in_CompanyTicker="TSLA" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:sd1="clr-namespace:System.Drawing;assembly=System.Drawing.Common" xmlns:sd2="clr-namespace:System.Drawing;assembly=System.Drawing.Primitives" xmlns:sd3="clr-namespace:System.Data;assembly=Studio.Generated.TypedDataTable1" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
-    <x:Property Name="out_SharePriceExcelFilePath" Type="OutArgument(x:String)" />
+    <x:Property Name="out_SharePriceHistoryDataTable" Type="OutArgument(sd:DataTable)" />
     <x:Property Name="out_PriceRetrievalStatus" Type="OutArgument(x:Boolean)" />
     <x:Property Name="in_CompanyTicker" Type="InArgument(x:String)" />
   </x:Members>
@@ -47,6 +47,11 @@
       <x:String>UiPath.Platform.SyncObjects</x:String>
       <x:String>System.Security</x:String>
       <x:String>System.ComponentModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.CV</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.ExtractData</x:String>
+      <x:String>System.Numerics</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -103,37 +108,46 @@
       <AssemblyReference>PresentationFramework</AssemblyReference>
       <AssemblyReference>WindowsBase</AssemblyReference>
       <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>Studio.Generated.TypedDataTable1</AssemblyReference>
+      <AssemblyReference>System.Data.SqlClient</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="YF_SearchCompanyData" sap:VirtualizedContainerService.HintSize="1281,2985" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="YF_SearchCompanyData" sap:VirtualizedContainerService.HintSize="1281,2282" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="sd:DataTable" Name="dtSharePriceHistoryData" />
+    </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="558,175" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Workflow YF_RetrieveCompanyData Begin.&quot;]" />
-    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="558,2621" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="558,1918" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <TryCatch.Try>
-        <Sequence DisplayName="Try" sap:VirtualizedContainerService.HintSize="556,1796" sap2010:WorkflowViewState.IdRef="Sequence_2">
+        <Sequence DisplayName="Try" sap:VirtualizedContainerService.HintSize="556,1113" sap2010:WorkflowViewState.IdRef="Sequence_2">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Sequence DisplayName="Sequence - Retrieve Data from Yahoo Finance" sap:VirtualizedContainerService.HintSize="522,1736" sap2010:WorkflowViewState.IdRef="Sequence_5">
+          <Sequence DisplayName="Sequence - Retrieve Data from Yahoo Finance" sap:VirtualizedContainerService.HintSize="522,1053" sap2010:WorkflowViewState.IdRef="Sequence_5">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="488,175" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;Searching Share Price History for Ticker &quot;]" />
-            <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Chrome Yahoo Finance -" HealingAgentBehavior="Job" sap:VirtualizedContainerService.HintSize="488,1304" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" ScopeGuid="c972d31e-feda-4bc8-bd1a-a2e4e1e036b3" Version="V2">
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="452,175" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;Searching Share Price History for Ticker &quot;]" />
+            <uix:NApplicationCard AttachMode="ByInstance" CloseMode="[UiPath.UIAutomationNext.Enums.NAppCloseMode.Always]" DisplayName="Chrome Yahoo Finance -" HealingAgentBehavior="Job" sap:VirtualizedContainerService.HintSize="452,629" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" IsIncognito="True" OpenMode="[UiPath.UIAutomationNext.Enums.NAppOpenMode.IfNotOpen]" ScopeGuid="c972d31e-feda-4bc8-bd1a-a2e4e1e036b3" Version="V2" WindowResize="Maximize">
               <uix:NApplicationCard.Body>
                 <ActivityAction x:TypeArguments="x:Object">
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
                   </ActivityAction.Argument>
-                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="486,1097" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="450,426" sap2010:WorkflowViewState.IdRef="Sequence_7">
                     <Sequence.Variables>
                       <Variable x:TypeArguments="x:Boolean" Name="boolAnalysisPopupExists" />
                     </Sequence.Variables>
@@ -142,76 +156,161 @@
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" ClipboardMode="Never" DisplayName="Type Into 'INPUT ybar-sbq'" EmptyFieldMode="SingleLine" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="452,246" sap2010:WorkflowViewState.IdRef="NTypeInto_1" InteractionMode="SameAsCard" ScopeIdentifier="c972d31e-feda-4bc8-bd1a-a2e4e1e036b3" Text="[string.Format(&quot;{0}[k(enter)]&quot;, in_CompanyTicker)]" Version="V5">
-                      <uix:NTypeInto.Target>
-                        <uix:TargetAnchorable BrowserURL="finance.yahoo.com" CVScreenId="0bb53abe-ddd2-42a4-9db4-ef40293a97ac" ContentHash="VLPkmO-mYECaETWD0afn9A" CvTextArea="385, 310, 276, 17" CvTextArgument="Search for news, tickers or companies" CvType="Text" DesignTimeRectangle="362, 297, 680, 40" ElementType="InputBox" ElementVisibilityArgument="Interactive" FuzzySelectorArgument="&lt;webctrl id='ybar-sbq' matching:id='fuzzy' fuzzylevel:id='0.0' tag='INPUT' type='text' aaname='Search query' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' /&gt;" Guid="b3496cdf-2caf-45d3-a4d7-590e39cd3265" InformativeScreenshot="3bbb646c97721eb34bfc15ccadf7a59b.png" Reference="3M5P-UxL6UqcrFsVRJtoeQ/-xpFFEt5Aki9_eOW2KYR_w" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Yahoo Finance - Stock Market Live, Quotes, Business &amp;amp; Finance News' /&gt;" SearchSteps="FuzzySelector, CV" Version="V6" WaitForReadyArgument="None" />
-                      </uix:NTypeInto.Target>
-                    </uix:NTypeInto>
-                    <ui:UiElementExists DisplayName="Element Exists 'DIV' - Analysis Popup" Exists="[boolAnalysisPopupExists]" sap:VirtualizedContainerService.HintSize="452,139" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
-                      <ui:UiElementExists.Target>
-                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="69b14f7b-70e7-4b76-8701-7aca8cbeab3a" InformativeScreenshot="e0ce236bf01e838b3784b02e8d63be76" Selector="&lt;webctrl aria-role='tooltip' parentid='main-content-wrapper' tag='DIV' /&gt;">
-                          <ui:Target.TimeoutMS>
-                            <InArgument x:TypeArguments="x:Int32" />
-                          </ui:Target.TimeoutMS>
-                          <ui:Target.WaitForReady>
-                            <InArgument x:TypeArguments="ui:WaitForReady" />
-                          </ui:Target.WaitForReady>
-                        </ui:Target>
-                      </ui:UiElementExists.Target>
-                    </ui:UiElementExists>
-                    <If Condition="[boolAnalysisPopupExists]" sap:VirtualizedContainerService.HintSize="452,652" sap2010:WorkflowViewState.IdRef="If_1">
-                      <If.Then>
-                        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="450,424" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="416,57" sap2010:WorkflowViewState.IdRef="CommentOut_3">
+                      <ui:CommentOut.Body>
+                        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="450,336" sap2010:WorkflowViewState.IdRef="Sequence_12">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="416,175" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[&quot;Closing In-Depth Analysis Box&quot;]" />
-                          <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Got it'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,189" sap2010:WorkflowViewState.IdRef="NClick_1" InteractionMode="Simulate" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="c972d31e-feda-4bc8-bd1a-a2e4e1e036b3" Version="V5">
+                          <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" ClipboardMode="Never" DisplayName="Type Into 'INPUT ybar-sbq'" EmptyFieldMode="SingleLine" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,57" sap2010:WorkflowViewState.IdRef="NTypeInto_1" InteractionMode="SameAsCard" ScopeIdentifier="c972d31e-feda-4bc8-bd1a-a2e4e1e036b3" Text="[string.Format(&quot;{0}[k(enter)]&quot;, in_CompanyTicker)]" Version="V5">
+                            <uix:NTypeInto.Target>
+                              <uix:TargetAnchorable BrowserURL="finance.yahoo.com" CVScreenId="0bb53abe-ddd2-42a4-9db4-ef40293a97ac" ContentHash="VLPkmO-mYECaETWD0afn9A" CvTextArea="385, 310, 276, 17" CvTextArgument="Search for news, tickers or companies" CvType="Text" DesignTimeRectangle="362, 297, 680, 40" ElementType="InputBox" ElementVisibilityArgument="Interactive" FuzzySelectorArgument="&lt;webctrl id='ybar-sbq' matching:id='fuzzy' fuzzylevel:id='0.0' tag='INPUT' type='text' aaname='Search query' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' /&gt;" Guid="b3496cdf-2caf-45d3-a4d7-590e39cd3265" InformativeScreenshot="3bbb646c97721eb34bfc15ccadf7a59b.png" Reference="3M5P-UxL6UqcrFsVRJtoeQ/-xpFFEt5Aki9_eOW2KYR_w" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Yahoo Finance - Stock Market Live, Quotes, Business &amp;amp; Finance News' /&gt;" SearchSteps="FuzzySelector, CV" Version="V6" WaitForReadyArgument="None" />
+                            </uix:NTypeInto.Target>
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </uix:NTypeInto>
+                          <ui:UiElementExists DisplayName="Element Exists 'DIV' - Analysis Popup" Exists="[boolAnalysisPopupExists]" sap:VirtualizedContainerService.HintSize="416,57" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
+                            <ui:UiElementExists.Target>
+                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="69b14f7b-70e7-4b76-8701-7aca8cbeab3a" InformativeScreenshot="e0ce236bf01e838b3784b02e8d63be76" Selector="&lt;webctrl aria-role='tooltip' parentid='main-content-wrapper' tag='DIV' /&gt;">
+                                <ui:Target.TimeoutMS>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:Target.TimeoutMS>
+                                <ui:Target.WaitForReady>
+                                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                                </ui:Target.WaitForReady>
+                              </ui:Target>
+                            </ui:UiElementExists.Target>
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </ui:UiElementExists>
+                          <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="416,57" sap2010:WorkflowViewState.IdRef="CommentOut_2">
+                            <ui:CommentOut.Body>
+                              <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="450,108" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <If Condition="[boolAnalysisPopupExists]" sap:VirtualizedContainerService.HintSize="416,48" sap2010:WorkflowViewState.IdRef="If_1">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <If.Then>
+                                    <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="450,420" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="416,175" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[&quot;Closing In-Depth Analysis Box&quot;]" />
+                                      <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Got it'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,185" sap2010:WorkflowViewState.IdRef="NClick_1" InteractionMode="Simulate" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="c972d31e-feda-4bc8-bd1a-a2e4e1e036b3" Version="V5">
+                                        <uix:NClick.Target>
+                                          <uix:TargetAnchorable BrowserURL="finance.yahoo.com/quote/TSLA" CVScreenId="1476f270-87c1-44bc-ad92-f0fbdb3dda81" ContentHash="GsqfAq8F5UyzrgLp0SpQgg" DesignTimeRectangle="749, 744, 58, 25" ElementType="Button" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl aria-label='Got it' tag='BUTTON' /&gt;" Guid="228af953-0e3b-48b9-8d70-19e538225d37" InformativeScreenshot="4d9ead11c1ab58ad2b6d928aa6d0c43c.png" Reference="3M5P-UxL6UqcrFsVRJtoeQ/goAbVyTnnUask9ihgIwtZg" ScopeSelectorArgument="&lt;html app='chrome.exe' title='*Yahoo Finance*' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="None" />
+                                        </uix:NClick.Target>
+                                      </uix:NClick>
+                                    </Sequence>
+                                  </If.Then>
+                                  <If.Else>
+                                    <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="450,226" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="416,166" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Info" Message="[&quot;In-Depth Analysis Box Did Not Open&quot;]" />
+                                    </Sequence>
+                                  </If.Else>
+                                </If>
+                              </Sequence>
+                            </ui:CommentOut.Body>
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </ui:CommentOut>
+                          <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click - Historical Data" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,57" sap2010:WorkflowViewState.IdRef="NClick_3" InteractionMode="Simulate" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="c972d31e-feda-4bc8-bd1a-a2e4e1e036b3" Version="V5">
                             <uix:NClick.Target>
-                              <uix:TargetAnchorable BrowserURL="finance.yahoo.com/quote/TSLA" CVScreenId="1476f270-87c1-44bc-ad92-f0fbdb3dda81" ContentHash="GsqfAq8F5UyzrgLp0SpQgg" DesignTimeRectangle="749, 744, 58, 25" ElementType="Button" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl aria-label='Got it' tag='BUTTON' /&gt;" Guid="228af953-0e3b-48b9-8d70-19e538225d37" InformativeScreenshot="4d9ead11c1ab58ad2b6d928aa6d0c43c.png" Reference="3M5P-UxL6UqcrFsVRJtoeQ/goAbVyTnnUask9ihgIwtZg" ScopeSelectorArgument="&lt;html app='chrome.exe' title='*Yahoo Finance*' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="None" />
+                              <uix:TargetAnchorable BrowserURL="finance.yahoo.com/quote/AAPL" CVScreenId="7a5d42ba-e70b-44af-9994-8195f6823f56" ContentHash="fw5jLv0POUul7LAwEJrbPg" DesignTimeRectangle="204, 674, 98, 21" ElementType="Text" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl aaname='Historical Data' parentid='nimbus-app' tag='SPAN' /&gt;" Guid="0c1f1a8b-031a-4164-8433-1b950d27f2df" InformativeScreenshot="3504dc684529bffa20d73f94b6189399.png" Reference="3M5P-UxL6UqcrFsVRJtoeQ/pKiQtzDe5Eq7Hq58v5Hb_w" ScopeSelectorArgument="&lt;html app='chrome.exe' title='*Yahoo Finance*' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="None" />
                             </uix:NClick.Target>
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
                           </uix:NClick>
+                          <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="416,48" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+                            <ui:CommentOut.Body>
+                              <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="450,245" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click - 1Y Data" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,185" sap2010:WorkflowViewState.IdRef="NClick_2" InteractionMode="Simulate" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="c972d31e-feda-4bc8-bd1a-a2e4e1e036b3" Version="V5">
+                                  <uix:NClick.Target>
+                                    <uix:TargetAnchorable BrowserURL="finance.yahoo.com/quote/AAPL" CVScreenId="fabc3ba2-bbed-430f-83cc-8470d8e4bb5c" ContentHash="hecXpYXc7k-zoai30TdQeA" DesignTimeRectangle="584, 711, 36, 15" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl aaname='1Y ' tag='SPAN' /&gt;" Guid="a5848a05-8422-409d-aad2-cebeae717440" InformativeScreenshot="00698ab11f1668d1117f07b3204e1618.png" Reference="3M5P-UxL6UqcrFsVRJtoeQ/68FtOP79gkOQqTvabGh8Gg" ScopeSelectorArgument="&lt;html app='chrome.exe' title='*Yahoo Finance*' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="None" />
+                                  </uix:NClick.Target>
+                                </uix:NClick>
+                              </Sequence>
+                            </ui:CommentOut.Body>
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </ui:CommentOut>
                         </Sequence>
-                      </If.Then>
-                      <If.Else>
-                        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="450,94" sap2010:WorkflowViewState.IdRef="Sequence_9">
-                          <sap:WorkflowViewStateService.ViewState>
-                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                            </scg:Dictionary>
-                          </sap:WorkflowViewStateService.ViewState>
-                        </Sequence>
-                      </If.Else>
-                    </If>
+                      </ui:CommentOut.Body>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </ui:CommentOut>
+                    <uix:NExtractDataGeneric x:TypeArguments="sd3:DataTable1" ContinueOnError="True" DisplayName="Extract Table Data - For the Stock" ExtractDataSettings="&lt;Table xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema' Type='Table' AddCvHeader='true' IsScrollEnabled='false'&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Date' ReferenceIdx='0' Name='Date'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Open' ReferenceIdx='1' Name='Open'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='High' ReferenceIdx='2' Name='High'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Low' ReferenceIdx='3' Name='Low'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Close' ReferenceIdx='4' Name='Close'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Adj Close' ReferenceIdx='5' Name='Adj Close'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Volume' ReferenceIdx='6' Name='Volume'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&lt;/Table&gt;" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' columns_name_source='Longest'&gt;&lt;column name='Date' attr='fulltext' /&gt;&lt;column name='Open' attr='fulltext' /&gt;&lt;column name='High' attr='fulltext' /&gt;&lt;column name='Low' attr='fulltext' /&gt;&lt;column name='Close' attr='fulltext' /&gt;&lt;column name='Adj Close' attr='fulltext' /&gt;&lt;column name='Volume' attr='fulltext' /&gt;&lt;/extract-table&gt;" ExtractedData="[out_SharePriceHistoryDataTable]" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,143" sap2010:WorkflowViewState.IdRef="NExtractDataGeneric`1_1" LimitExtractionTo="None" MaximumResults="0" ScopeIdentifier="c972d31e-feda-4bc8-bd1a-a2e4e1e036b3" Version="V5">
+                      <uix:NExtractDataGeneric.Target>
+                        <uix:TargetAnchorable BrowserURL="https://finance.yahoo.com/quote/AAPL/history/" DesignTimeRectangle="361, 772, 1015, 8192" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl tag='TABLE' /&gt;" Guid="95fdef94-4cd9-43e7-8840-eae313bd6d5a" InformativeScreenshot="35c2569d34ce72b33c59b6e675472b3f.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Apple Inc. (AAPL) Stock Historical Prices &amp;amp; Data - Yahoo Finance' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive" />
+                      </uix:NExtractDataGeneric.Target>
+                    </uix:NExtractDataGeneric>
+                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="416,166" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[&quot;Total Rows of Data Extracted from Portal: &quot;+out_SharePriceHistoryDataTable.RowCount.ToString]" />
                   </Sequence>
                 </ActivityAction>
               </uix:NApplicationCard.Body>
               <uix:NApplicationCard.OCREngine>
-                <ActivityFunc x:TypeArguments="sd:Image, scg:IEnumerable(scg:KeyValuePair(sd1:Rectangle, x:String))">
+                <ActivityFunc x:TypeArguments="sd1:Image, scg:IEnumerable(scg:KeyValuePair(sd2:Rectangle, x:String))">
                   <ActivityFunc.Argument>
-                    <DelegateInArgument x:TypeArguments="sd:Image" Name="Image" />
+                    <DelegateInArgument x:TypeArguments="sd1:Image" Name="Image" />
                   </ActivityFunc.Argument>
                 </ActivityFunc>
               </uix:NApplicationCard.OCREngine>
               <uix:NApplicationCard.TargetApp>
-                <uix:TargetApp Area="-8, -8, 1936, 1048" BrowserType="Chrome" ContentHash="tN9PJ_OYwkiy6ijX4je0Sg" IconBase64="iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJMSURBVFhHY0hgvPR/IDEDugC98agDRh1AMwfU6N36/+TKdxS8ru4FhjqaOeDYknf/0UGz5R0MdTRxQIH0tf+/f/1DsfzBuW8Y6kCYJg7Y0vEKxXIQmBnzCEMdCFPdAWncl/9/efcHxfJ3T3/9T2bFVAvCWB1w+9gXFAMOznmLoWZ9wwsUNXdOfAWLL855iiIOAqsqnmPox+uAKSEPUAz48fXv/0yBK3D5JJZLYF8hg2kRD/8nMl36/+L2DxTxH1/+/s8SvIphB14HJDJf+v/6/k8Ug5bmP8XpwHdPfoEdNTEAVRwE9kx5g2E+QQeA8NIC1KB8dv07XO7avs8ocqsrIUF84xBq1P39++9/mcoNDLOJckAG75X/3z6iJqYOx7v/KzVvooj9/Pb3f7bw1f+pnJfBwY+MD8zCTDvoGKcDQHh7D2p2OrX6w//dk16jiCFbAnJ0CvtlDHPwYbwOKJK7/v/Pb0SBAmJ/+4QaKlXaN//niFz9f2nHp////v0DqwE5Et0sXBivA0D4xIr3KBYig8u7PoHVHFmIWexOj3yIYRY2TNABjWa30c2Ggz7v+2A1T65+R5f6v7EJs+LBhgk6AIRvHUFN3SDw/OYPuPyeqW9Q5EBR0WKNWfFgw0Q5YHIQZv5elP0ELg8qfvdOe/P/zcOf/x+e/wYulNDNwIWJckC/z30Uy79++PM/nQdRMlKCiXIAesEDyp7oasjFBB1Qa3ALxfK/f/79L1a4jqGOXEzQAUcXoWax02s/YKihBBN0AK3xqANGHTDgDgAABG/2zL1KBAEAAAAASUVORK5CYII=" InformativeScreenshot="dc873b38d791e8014a6a62b14832a54b.jpg" Reference="3M5P-UxL6UqcrFsVRJtoeQ/bdBaljpAyU2if2hdiC6ZWw" Selector="&lt;html app='chrome.exe' title='Yahoo Finance - *' /&gt;" Url="https://finance.yahoo.com/" Version="V2">
-                  <uix:TargetApp.Arguments>
-                    <InArgument x:TypeArguments="x:String" />
-                  </uix:TargetApp.Arguments>
-                  <uix:TargetApp.WorkingDirectory>
-                    <InArgument x:TypeArguments="x:String" />
-                  </uix:TargetApp.WorkingDirectory>
-                </uix:TargetApp>
+                <uix:TargetApp Area="-8, -8, 1936, 1048" BrowserType="Chrome" ContentHash="cugH4kDptU-ABVutB5iMkw" IconBase64="iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJMSURBVFhHY0hgvPR/IDEDugC98agDRh1AMwfU6N36/+TKdxS8ru4FhjqaOeDYknf/0UGz5R0MdTRxQIH0tf+/f/1DsfzBuW8Y6kCYJg7Y0vEKxXIQmBnzCEMdCFPdAWncl/9/efcHxfJ3T3/9T2bFVAvCWB1w+9gXFAMOznmLoWZ9wwsUNXdOfAWLL855iiIOAqsqnmPox+uAKSEPUAz48fXv/0yBK3D5JJZLYF8hg2kRD/8nMl36/+L2DxTxH1/+/s8SvIphB14HJDJf+v/6/k8Ug5bmP8XpwHdPfoEdNTEAVRwE9kx5g2E+QQeA8NIC1KB8dv07XO7avs8ocqsrIUF84xBq1P39++9/mcoNDLOJckAG75X/3z6iJqYOx7v/KzVvooj9/Pb3f7bw1f+pnJfBwY+MD8zCTDvoGKcDQHh7D2p2OrX6w//dk16jiCFbAnJ0CvtlDHPwYbwOKJK7/v/Pb0SBAmJ/+4QaKlXaN//niFz9f2nHp////v0DqwE5Et0sXBivA0D4xIr3KBYig8u7PoHVHFmIWexOj3yIYRY2TNABjWa30c2Ggz7v+2A1T65+R5f6v7EJs+LBhgk6AIRvHUFN3SDw/OYPuPyeqW9Q5EBR0WKNWfFgw0Q5YHIQZv5elP0ELg8qfvdOe/P/zcOf/x+e/wYulNDNwIWJckC/z30Uy79++PM/nQdRMlKCiXIAesEDyp7oasjFBB1Qa3ALxfK/f/79L1a4jqGOXEzQAUcXoWax02s/YKihBBN0AK3xqANGHTDgDgAABG/2zL1KBAEAAAAASUVORK5CYII=" InformativeScreenshot="09e7b6c2e035ae2678525b67784d0e91.jpg" Reference="3M5P-UxL6UqcrFsVRJtoeQ/bdBaljpAyU2if2hdiC6ZWw" Selector="&lt;html app='chrome.exe' title='*Yahoo Finance*' /&gt;" Url="[&quot;https://finance.yahoo.com/quote/&quot;+in_CompanyTicker+&quot;/history/&quot;]" Version="V2" />
               </uix:NApplicationCard.TargetApp>
             </uix:NApplicationCard>
-            <Assign sap:VirtualizedContainerService.HintSize="488,170" sap2010:WorkflowViewState.IdRef="Assign_1">
+            <Assign sap:VirtualizedContainerService.HintSize="452,166" sap2010:WorkflowViewState.IdRef="Assign_1">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:Boolean">[out_PriceRetrievalStatus]</OutArgument>
               </Assign.To>
               <Assign.Value>
-                <InArgument x:TypeArguments="x:Boolean">[True]</InArgument>
+                <InArgument x:TypeArguments="x:Boolean">[If(out_SharePriceHistoryDataTable.RowCount&gt;0, True, False)]</InArgument>
               </Assign.Value>
             </Assign>
           </Sequence>
@@ -223,20 +322,20 @@
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
             </ActivityAction.Argument>
-            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="556,553" sap2010:WorkflowViewState.IdRef="Sequence_3">
+            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="556,541" sap2010:WorkflowViewState.IdRef="Sequence_3">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <Sequence DisplayName="Sequence - Exception Steps" sap:VirtualizedContainerService.HintSize="522,493" sap2010:WorkflowViewState.IdRef="Sequence_6">
+              <Sequence DisplayName="Sequence - Exception Steps" sap:VirtualizedContainerService.HintSize="522,481" sap2010:WorkflowViewState.IdRef="Sequence_6">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
                 <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="416,175" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Exception occurred in workflow YF_RetrieveCompanyData. Exception Details: &quot;+exception.ToString]" />
-                <Assign sap:VirtualizedContainerService.HintSize="416,179" sap2010:WorkflowViewState.IdRef="Assign_2">
+                <Assign sap:VirtualizedContainerService.HintSize="416,175" sap2010:WorkflowViewState.IdRef="Assign_2">
                   <Assign.To>
                     <OutArgument x:TypeArguments="x:Boolean">[out_PriceRetrievalStatus]</OutArgument>
                   </Assign.To>
@@ -244,14 +343,14 @@
                     <InArgument x:TypeArguments="x:Boolean">[False]</InArgument>
                   </Assign.Value>
                 </Assign>
-                <Rethrow sap:VirtualizedContainerService.HintSize="416,52" sap2010:WorkflowViewState.IdRef="Rethrow_1" />
+                <Rethrow sap:VirtualizedContainerService.HintSize="416,48" sap2010:WorkflowViewState.IdRef="Rethrow_1" />
               </Sequence>
             </Sequence>
           </ActivityAction>
         </Catch>
       </TryCatch.Catches>
       <TryCatch.Finally>
-        <Sequence DisplayName="Finally" sap:VirtualizedContainerService.HintSize="556,94" sap2010:WorkflowViewState.IdRef="Sequence_4">
+        <Sequence DisplayName="Finally" sap:VirtualizedContainerService.HintSize="556,90" sap2010:WorkflowViewState.IdRef="Sequence_4">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>

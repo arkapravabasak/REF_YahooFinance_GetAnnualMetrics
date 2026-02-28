@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="fw5jLv0POUul7LAwEJrbPg" Reference="3M5P-UxL6UqcrFsVRJtoeQ/pKiQtzDe5Eq7Hq58v5Hb_w" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="finance.yahoo.com/quote/AAPL" CVScreenId="7a5d42ba-e70b-44af-9994-8195f6823f56" DesignTimeRectangle="204, 674, 98, 21" ElementType="Text" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl aaname='Historical Data' parentid='nimbus-app' tag='SPAN' /&gt;" Guid="0c1f1a8b-031a-4164-8433-1b950d27f2df" ScopeSelectorArgument="&lt;html app='chrome.exe' title='*Yahoo Finance*' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="None">
+      <imageRef attrName="InformativeScreenshot" originalValue="3504dc684529bffa20d73f94b6189399.png" xmlns="">0MzcPs9_D2UClO8NIYjLa4Q</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">Click</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

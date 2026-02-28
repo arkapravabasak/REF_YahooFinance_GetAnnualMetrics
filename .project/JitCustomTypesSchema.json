@@ -1,0 +1,51 @@
+{
+  "exportedBy": null,
+  "bundleHash": null,
+  "version": "1.0.0.0",
+  "jitAssemblyCompilerCommands": [
+    {
+      "providerName": "TypedDataTable",
+      "typedDataTableDto": {
+        "id": 1,
+        "idRef": "NExtractDataGeneric`1_1",
+        "hash": "NExtractDataGeneric`1_1|DataTable|pchGsyFNsXt4QhjGmCnn3SVEXh6U4tFZotuE3KqJnY",
+        "dataType": "System.Data.DataTable, System.Data.Common",
+        "columns": [
+          {
+            "columnName": "Date",
+            "dataType": "System.String, System.Private.CoreLib"
+          },
+          {
+            "columnName": "Open",
+            "dataType": "System.String, System.Private.CoreLib"
+          },
+          {
+            "columnName": "High",
+            "dataType": "System.String, System.Private.CoreLib"
+          },
+          {
+            "columnName": "Low",
+            "dataType": "System.String, System.Private.CoreLib"
+          },
+          {
+            "columnName": "Close",
+            "dataType": "System.String, System.Private.CoreLib"
+          },
+          {
+            "columnName": "Adj Close",
+            "dataType": "System.String, System.Private.CoreLib"
+          },
+          {
+            "columnName": "Volume",
+            "dataType": "System.String, System.Private.CoreLib"
+          }
+        ]
+      },
+      "entityAssemblyKey": {
+        "name": "Studio.Generated.TypedDataTable1",
+        "hash": "NExtractDataGeneric`1_1|DataTable|Qm1G9r0YeFKIpjwUopyqWylaBVBoSJsmEVVrjznCA",
+        "assemblyName": "Studio.Generated.TypedDataTable1"
+      }
+    }
+  ]
+}

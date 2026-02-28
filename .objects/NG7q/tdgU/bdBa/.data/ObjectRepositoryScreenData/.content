@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="utf-16"?>
-<ObjectRepositoryScreenData ContentHash="tN9PJ_OYwkiy6ijX4je0Sg" Reference="3M5P-UxL6UqcrFsVRJtoeQ/bdBaljpAyU2if2hdiC6ZWw" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:p="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<ObjectRepositoryScreenData ContentHash="cugH4kDptU-ABVutB5iMkw" Reference="3M5P-UxL6UqcrFsVRJtoeQ/bdBaljpAyU2if2hdiC6ZWw" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <ObjectRepositoryScreenData.Data>
-    <TargetApp x:Key="TargetApp" Area="-8, -8, 1936, 1048" BrowserType="Chrome" ContentHash="64K2MzRlBkeriwlQUz13kQ" IconBase64="iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJMSURBVFhHY0hgvPR/IDEDugC98agDRh1AMwfU6N36/+TKdxS8ru4FhjqaOeDYknf/0UGz5R0MdTRxQIH0tf+/f/1DsfzBuW8Y6kCYJg7Y0vEKxXIQmBnzCEMdCFPdAWncl/9/efcHxfJ3T3/9T2bFVAvCWB1w+9gXFAMOznmLoWZ9wwsUNXdOfAWLL855iiIOAqsqnmPox+uAKSEPUAz48fXv/0yBK3D5JJZLYF8hg2kRD/8nMl36/+L2DxTxH1/+/s8SvIphB14HJDJf+v/6/k8Ug5bmP8XpwHdPfoEdNTEAVRwE9kx5g2E+QQeA8NIC1KB8dv07XO7avs8ocqsrIUF84xBq1P39++9/mcoNDLOJckAG75X/3z6iJqYOx7v/KzVvooj9/Pb3f7bw1f+pnJfBwY+MD8zCTDvoGKcDQHh7D2p2OrX6w//dk16jiCFbAnJ0CvtlDHPwYbwOKJK7/v/Pb0SBAmJ/+4QaKlXaN//niFz9f2nHp////v0DqwE5Et0sXBivA0D4xIr3KBYig8u7PoHVHFmIWexOj3yIYRY2TNABjWa30c2Ggz7v+2A1T65+R5f6v7EJs+LBhgk6AIRvHUFN3SDw/OYPuPyeqW9Q5EBR0WKNWfFgw0Q5YHIQZv5elP0ELg8qfvdOe/P/zcOf/x+e/wYulNDNwIWJckC/z30Uy79++PM/nQdRMlKCiXIAesEDyp7oasjFBB1Qa3ALxfK/f/79L1a4jqGOXEzQAUcXoWax02s/YKihBBN0AK3xqANGHTDgDgAABG/2zL1KBAEAAAAASUVORK5CYII=" Reference="3M5P-UxL6UqcrFsVRJtoeQ/bdBaljpAyU2if2hdiC6ZWw" Selector="&lt;html app='chrome.exe' title='Yahoo Finance - *' /&gt;" Url="https://finance.yahoo.com/" Version="V2">
-      <TargetApp.Arguments>
-        <p:InArgument x:TypeArguments="x:String" />
-      </TargetApp.Arguments>
-      <TargetApp.WorkingDirectory>
-        <p:InArgument x:TypeArguments="x:String" />
-      </TargetApp.WorkingDirectory>
-      <imageRef attrName="InformativeScreenshot" originalValue="dc873b38d791e8014a6a62b14832a54b.jpg" xmlns="">01b9_lZjTbUSs-13yIW7Scw</imageRef>
+    <TargetApp x:Key="TargetApp" Area="-8, -8, 1936, 1048" BrowserType="Chrome" ContentHash="3wn8DhtNbkW0t7BMp5Ydng" IconBase64="iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJMSURBVFhHY0hgvPR/IDEDugC98agDRh1AMwfU6N36/+TKdxS8ru4FhjqaOeDYknf/0UGz5R0MdTRxQIH0tf+/f/1DsfzBuW8Y6kCYJg7Y0vEKxXIQmBnzCEMdCFPdAWncl/9/efcHxfJ3T3/9T2bFVAvCWB1w+9gXFAMOznmLoWZ9wwsUNXdOfAWLL855iiIOAqsqnmPox+uAKSEPUAz48fXv/0yBK3D5JJZLYF8hg2kRD/8nMl36/+L2DxTxH1/+/s8SvIphB14HJDJf+v/6/k8Ug5bmP8XpwHdPfoEdNTEAVRwE9kx5g2E+QQeA8NIC1KB8dv07XO7avs8ocqsrIUF84xBq1P39++9/mcoNDLOJckAG75X/3z6iJqYOx7v/KzVvooj9/Pb3f7bw1f+pnJfBwY+MD8zCTDvoGKcDQHh7D2p2OrX6w//dk16jiCFbAnJ0CvtlDHPwYbwOKJK7/v/Pb0SBAmJ/+4QaKlXaN//niFz9f2nHp////v0DqwE5Et0sXBivA0D4xIr3KBYig8u7PoHVHFmIWexOj3yIYRY2TNABjWa30c2Ggz7v+2A1T65+R5f6v7EJs+LBhgk6AIRvHUFN3SDw/OYPuPyeqW9Q5EBR0WKNWfFgw0Q5YHIQZv5elP0ELg8qfvdOe/P/zcOf/x+e/wYulNDNwIWJckC/z30Uy79++PM/nQdRMlKCiXIAesEDyp7oasjFBB1Qa3ALxfK/f/79L1a4jqGOXEzQAUcXoWax02s/YKihBBN0AK3xqANGHTDgDgAABG/2zL1KBAEAAAAASUVORK5CYII=" Reference="3M5P-UxL6UqcrFsVRJtoeQ/bdBaljpAyU2if2hdiC6ZWw" Selector="&lt;html app='chrome.exe' title='*Yahoo Finance*' /&gt;" Url="[&quot;https://finance.yahoo.com/quote/&quot;+in_CompanyTicker+&quot;/history/&quot;]" Version="V2">
+      <imageRef attrName="InformativeScreenshot" originalValue="09e7b6c2e035ae2678525b67784d0e91.jpg" xmlns="">0rM6WX6GQ20qRMRxZ9I1TkA</imageRef>
     </TargetApp>
+    <scg:List x:TypeArguments="ObjectRepositoryVariableData" x:Key="Variables" Capacity="1">
+      <ObjectRepositoryVariableData IsVariable="False" Name="in_CompanyTicker" />
+    </scg:List>
   </ObjectRepositoryScreenData.Data>
 </ObjectRepositoryScreenData>

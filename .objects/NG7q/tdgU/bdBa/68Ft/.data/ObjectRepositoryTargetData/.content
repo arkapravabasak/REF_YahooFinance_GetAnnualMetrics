@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="hecXpYXc7k-zoai30TdQeA" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="finance.yahoo.com/quote/AAPL" CVScreenId="fabc3ba2-bbed-430f-83cc-8470d8e4bb5c" DesignTimeRectangle="584, 711, 36, 15" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl aaname='1Y ' tag='SPAN' /&gt;" Guid="a5848a05-8422-409d-aad2-cebeae717440" ScopeSelectorArgument="&lt;html app='chrome.exe' title='*Yahoo Finance*' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="None">
+      <imageRef attrName="InformativeScreenshot" originalValue="00698ab11f1668d1117f07b3204e1618.png" xmlns="">0zYe5VoBdCUadaSGSBrG60Q</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">Click</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

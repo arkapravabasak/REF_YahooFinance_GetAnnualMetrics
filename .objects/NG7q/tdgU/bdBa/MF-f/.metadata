@@ -1,0 +1,13 @@
+﻿{
+  "Name": "Extract Table Data - For the Stock",
+  "Type": "Element",
+  "Id": "MF-fCNRFbUufanghuxypPQ",
+  "Reference": "3M5P-UxL6UqcrFsVRJtoeQ/MF-fCNRFbUufanghuxypPQ",
+  "ParentRef": "3M5P-UxL6UqcrFsVRJtoeQ/bdBaljpAyU2if2hdiC6ZWw",
+  "Created": "2026-02-21T10:28:43.2053275Z",
+  "Updated": "2026-02-21T10:28:43.2053275Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=25.10.22.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=25.10.1.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

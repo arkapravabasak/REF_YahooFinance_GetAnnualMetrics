@@ -45,6 +45,7 @@
       <x:String>UiPath.Core</x:String>
       <x:String>UiPath.Core.Activities</x:String>
       <x:String>System.Linq.Expressions</x:String>
+      <x:String>System.ComponentModel</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -101,6 +102,8 @@
       <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
       <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
       <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>Studio.Generated.TypedDataTable1</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <StateMachine InitialState="{x:Reference __ReferenceID3}" sap2010:Annotation.AnnotationText="[Process title]&#xA;REF_YahooFinance_GetAnnualMetrics – Annual Stock Price Metrics Extractor&#xA;[Process description]&#xA;This automation reads a list of companies/tickers from an input Excel file and navigates to Yahoo Finance using Chrome (Incognito) to fetch 1-year historical share price data. Using the extracted data, the bot calculates key annual metrics such as current price, average yearly price, and the highest/lowest price dates. The results are then updated back into the same Excel file against each company record and the process ends by closing all opened applications.&#xA;[Additional information (e.g., author, contact information and applications involved and required external setup)]&#xA;Key Features / Highlights:&#xA;- Reads company list dynamically from Excel (scalable for multiple companies)&#xA;- Uses UI automation to extract 1-year historical stock price data from Yahoo Finance&#xA;- Calculates:&#xA; --- Current Price (latest Close value)&#xA; --- Average Close Price (1 year)&#xA; --- Highest Close price with date&#xA; --- Lowest Close price with date&#xA;- Updates the same Excel file with computed results and processing status&#xA;- Includes exception handling to continue processing remaining companies if one fails&#xA;- Designed using standard RPA development principles (Init → Process → End structure)&#xA;Input:&#xA;- Excel file containing CompanyName and/or Ticker values&#xA;Output&#xA;- Updated Excel file with annual stock metrics per company and execution status&#xA;Applications Used&#xA;- Google Chrome (Incognito)&#xA;- Microsoft Excel" DisplayName="General Business Process" sap:VirtualizedContainerService.HintSize="1287,622" sap2010:WorkflowViewState.IdRef="StateMachine_1">

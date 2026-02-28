@@ -1,0 +1,13 @@
+﻿{
+  "Name": "Click - 1Y Data",
+  "Type": "Element",
+  "Id": "68FtOP79gkOQqTvabGh8Gg",
+  "Reference": "3M5P-UxL6UqcrFsVRJtoeQ/68FtOP79gkOQqTvabGh8Gg",
+  "ParentRef": "3M5P-UxL6UqcrFsVRJtoeQ/bdBaljpAyU2if2hdiC6ZWw",
+  "Created": "2026-02-21T10:23:34.1191367Z",
+  "Updated": "2026-02-21T10:23:34.1191367Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=25.10.22.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=25.10.1.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}
